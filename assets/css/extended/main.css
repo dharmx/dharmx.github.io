@@ -1,0 +1,21 @@
+.copy-code {
+  display: none;
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  color: var(--primary);
+  background: var(--tertiary);
+  border-radius: var(--radius);
+  padding: 0 5px;
+  font-size: 14px;
+  user-select: none;
+}
+
+.highlight div {
+  background-color: var(--theme) !important;
+}
+
+.highlight div table tbody tr td pre {
+  border-radius: 0;
+  background-color: var(--hljs-bg) !important;
+}

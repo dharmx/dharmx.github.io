@@ -1,56 +1,86 @@
-baseURL: https://dharmx.github.io/dharmx
 languageCode: en-us
-title: Dharma
+title: dead airspace
 theme: PaperMod
+disqusShortname: dead-airspace
 
 params:
+  env: production
+  images: ["/imgs/dead-airspace.png"]
+  comments: true
+  ShowReadingTime: true
+  ShowShareButtons: true
+
+  assets:
+    favicon: /favicons/favicon.ico
+    favicon16x16: /favicons/favicon-16x16.png
+    favicon32x32: /favicons/favicon-32x32.png
+    apple_touch_icon: /favicons/apple-touch-icon.png
+
   cover:
     linkFullImages: true
     responsiveImages: true
 
-  ShowBreadCrumbs: false
-  ShowReadingTime: true
-  ShowShareButtons: true
-  ShowPostNavLinks: false
-  ShareButtons: ["linkedin", "twitter"]
+  label:
+    text: "dead-airspace"
+    icon: /favicons/icon.svg
+    iconHeight: 35
+
+  homeInfoParams:
+    Title: Greetings. Traveller.
+    Content: "This is dharmx, your operator. Be advised, you have entered dead-airspace,
+             a feedback loop of corrupt transmissions. This signal is being broadcasted from
+             an abandoned space station. Traversing aimlessly through dead-space recording
+             and archiving its findings. Hope you find these recordings useful if not, entertaining."
 
   profileMode:
-    enabled: false
-    title: Dharmx
-    subtitle: Your Mother.
-    imageUrl: images/profile.png
-    imageTitle: city
+    enabled: true
+    title: "Greetings. Visitor."
+    subtitle: "This is dharmx, your operator. Be advised, you have entered dead-airspace,
+              a feedback loop of corrupt transmissions."
+    imageUrl: "/imgs/profile.png"
+    imageTitle: "Hello."
     imageWidth: 120
     imageHeight: 120
     buttons:
-      - name: Archive
-        url: "/archive"
       - name: Github
-        url: "https://github.com/"
+        url: "https://github.com/dharmx"
 
-  socialIcons:
-    - name: GitHub
-      url: https://github.com/dharmx
-    - name: Mail
-      url: mailto:dharmx.dev@gmail.com
-    - name: Discord
-      url: https://discord.gg/CYX2nP22
-
-  homeInfoParams:
-    Title: Hi there wave
-    Content: Can be Info, links, about...
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.4
+    minMatchCharLength: 2
+    keys: ["title", "permalink", "summary", "content", "journals", "eww"]
 
 menu:
   main:
-    - identifier: categories
-      name: Categories
-      url: /categories/
+    - identifier: journals
+      name: Journals
+      url: /journals/
       weight: 10
-    - identifier: tags
-      name: Tags
-      url: /tags/
+    - name: Search
+      url: /search/
       weight: 20
     - identifier: archives
-      name: Archives
-      url: /archives/
+      name: Categories
+      url: /categories/
       weight: 30
+    - name: Tags
+      url: /tags/
+      weight: 40
+
+minify:
+  disableXML: true
+  minifyOutput: true
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    guessSyntax: true
+    noclasses: false
+  tableOfContents:
+    ordered: true
