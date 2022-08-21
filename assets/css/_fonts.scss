@@ -1,0 +1,109 @@
+// Dosis Bold
+@font-face {
+  font-family: Dosis;
+  font-style: normal;
+  font-weight: 700;
+  src: local("Dosis Bold"), local("Dosis-Bold"), url("/fonts/Dosis/Dosis-Bold.ttf") format("truetype");
+}
+
+// Dosis ExtraBold
+@font-face {
+  font-family: Dosis;
+  font-style: normal;
+  font-weight: 800;
+  src: local("Dosis ExtraBold"), local("Dosis-ExtraBold"), url("/fonts/Dosis/Dosis-ExtraBold.ttf") format("truetype");
+}
+
+// Dosis ExtraLight
+@font-face {
+  font-family: Dosis;
+  font-style: normal;
+  font-weight: 200;
+  src: local("Dosis ExtraLight"), local("Dosis-ExtraLight"), url("/fonts/Dosis/Dosis-ExtraLight.ttf") format("truetype");
+}
+
+// Dosis Light
+@font-face {
+  font-family: Dosis;
+  font-style: normal;
+  font-weight: 300;
+  src: local("Dosis Light"), local("Dosis-Light"), url("/fonts/Dosis/Dosis-Light.ttf") format("truetype");
+}
+
+// Dosis Medium
+@font-face {
+  font-family: Dosis;
+  font-style: normal;
+  font-weight: 500;
+  src: local("Dosis Medium"), local("Dosis-Medium"), url("/fonts/Dosis/Dosis-Medium.ttf") format("truetype");
+}
+
+// Dosis Regular
+@font-face {
+  font-family: Dosis;
+  font-style: normal;
+  font-weight: 400;
+  src: local("Dosis Regular"), local("Dosis-Regular"), url("/fonts/Dosis/Dosis-Regular.ttf") format("truetype");
+}
+
+// Dosis SemiBold
+@font-face {
+  font-family: Dosis;
+  font-style: normal;
+  font-weight: 600;
+  src: local("Dosis SemiBold"), local("Dosis-SemiBold"), url("/fonts/Dosis/Dosis-SemiBold.ttf") format("truetype");
+}
+
+// Iosevka Nerd Font Bold
+@font-face {
+  font-family: "Iosevka Nerd Font";
+  font-style: normal;
+  font-weight: 700;
+  src: local("Iosevka Bold Nerd Font Complete"), url("/fonts/Iosevka/Iosevka Bold Nerd Font Complete.ttf") format("truetype");
+}
+
+// Iosevka Nerd Font Light
+@font-face {
+  font-family: "Iosevka Nerd Font";
+  font-style: normal;
+  font-weight: 300;
+  src: local("Iosevka Light Nerd Font Complete"), url("/fonts/Iosevka/Iosevka Light Nerd Font Complete.ttf") format("truetype");
+}
+
+// Iosevka Nerd Font Medium
+@font-face {
+  font-family: "Iosevka Nerd Font";
+  font-style: normal;
+  font-weight: 500;
+  src: local("Iosevka Medium Nerd Font Complete"), url("/fonts/Iosevka/Iosevka Medium Nerd Font Complete.ttf") format("truetype");
+}
+
+// Iosevka Nerd Font Regular
+@font-face {
+  font-family: "Iosevka Nerd Font";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Iosevka Nerd Font Complete"), url("/fonts/Iosevka/Iosevka Nerd Font Complete.ttf") format("truetype");
+}
+
+// Iosevka Nerd Font Thin
+@font-face {
+  font-family: "Iosevka Nerd Font";
+  font-style: normal;
+  font-weight: 600;
+  src: local("Iosevka Thin Nerd Font Complete"), url("/fonts/Iosevka/Iosevka Thin Nerd Font Complete.ttf") format("truetype");
+}
+
+// Phosphor Glyph Font
+@font-face {
+  font-family: phosphor;
+  font-style: normal;
+  src: local("Phosphor"), url("/fonts/Phosphor.ttf") format("truetype");
+}
+
+// Emoji Fonts
+@font-face {
+  font-family: Emoji;
+  src: local("Apple Color Emoji"), local("Segoe UI Emoji"), local("Segoe UI Symbol"), local("Noto Color Emoji");
+  unicode-range: U+1F000-1F644, U+203C-3299;
+}

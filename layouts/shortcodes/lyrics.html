@@ -3,7 +3,7 @@
   {{ warnf "at least one param is required" .Position }}
 {{ else }}
   {{ range (seq 0 $lines) }}
-    <samp>{{ $.Get . }}</samp><br>
+    <samp>{{ $.Get . }}</samp><br/>
   {{ end }}
-  <br>
+  <br/>
 {{ end }}

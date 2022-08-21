@@ -1,0 +1,6 @@
+{{ $lines := (len .Params) }}
+{{ if not (eq $lines 1) }}
+  {{ warnf "Only two args are allowed" .Position }}
+{{ else }}
+  <mark class="{{ .Get "class" }}">{{ .Inner }}</mark>
+{{ end }}

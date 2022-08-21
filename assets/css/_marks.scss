@@ -1,0 +1,25 @@
+mark {
+  background-color: #ffe59e;
+}
+
+.bspwm-basics-mark-index-red {
+  color: #f87070;
+  background-color: var(--theme);
+  font-weight: bold;
+
+  /* fix for periods being one space apart */
+  margin-right: -4px;
+}
+
+.bspwm-basics-mark-index-green {
+  color: #79dcaa;
+  background-color: var(--theme);
+  font-weight: bold;
+  margin-right: -4px;
+}
+
+.bspwm-basics-mark-index-blue {
+  color: #7ab0df;
+  background-color: var(--theme);
+  font-weight: bold;
+}
