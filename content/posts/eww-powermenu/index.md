@@ -1,11 +1,12 @@
 ---
 draft: false
 
-title: "Eww Powermenu"
-summary: "Due to Eww's interesting choice of DSL it is hard to configure and is very DIY.
+title: "EWW Powermenu"
+subtitle: "A classy powermenu using EWW."
+summary: "Due to EWW's interesting choice of DSL it is hard to configure and is very DIY.
          Plus, there aren't any definitive tutorials. Hence! I will try to ease you through
-         the process of configuring Eww while building a classy Powermenu."
-description: "Learning the basics of Eww by building a neat Powermenu. Level, intermediate."
+         the process of configuring EWW while building a classy Powermenu."
+description: "Learning the basics of EWW by building a neat Powermenu. Level, intermediate."
 
 date: "2022-08-18T18:08:53+05:30"
 lastmod: "2022-08-23T18:50:18+05:30"
@@ -17,10 +18,10 @@ relative: true
 
 author: "dharmx"
 authorLink: "https://dharmx.is-a.dev"
+license: "<a rel='license external nofollow noopener noreffer' href='https://opensource.org/licenses/GPL-3.0' target='_blank'>GPL-3.0</a>"
 
-resources:
-- name: "featured-image"
-  src: "images/featured-image.png"
+featuredImage: "images/featured-image.png"
+featuredImagePreview: "images/featured-image.png"
 
 images: ["/eww-powermenu/images/featured-image.png"]
 toc:
@@ -37,12 +38,10 @@ linkToMarkdown: true
 rssFullText: false
 ---
 
-A classy powermenu using Eww.
-
 # Introduction
 
 Hello there. Hope you are doing well. Lately, I have been playing with a neat
-piece of software called [eww](https://elkowar.github.io/eww). Making some
+piece of software called [EWW](https://elkowar.github.io/eww). Making some
 aesthetic UI, widgets and whatnot.
 
 Note that, this has a very steep learning curve. This is because tutorials,
@@ -75,7 +74,7 @@ work on, what languages you'd need to know, etc.
   will work as well.
 
   {{< admonition note "Does EWW work on Wayland?" >}}
-  This tutorial is designed for running eww on a xorg-based
+  This tutorial is designed for running EWW on a xorg-based
   window manager, but minimal changes should be able to make it run on wayland.
   See [build flags](https://elkowar.github.io/eww/#building) and [widget definitions](https://elkowar.github.io/eww/configuration.html#wayland).
   {{< /admonition >}}
@@ -90,9 +89,9 @@ you do not know what a package is called for your distro (Arch's and
 Debian's package naming conventions are quite different).
 {{< /admonition >}}
 
-- First and foremost you will need [eww](https://elkowar.github.io/eww). Head
+- First and foremost you will need [EWW](https://elkowar.github.io/eww). Head
   over to their [website](https://elkowar.github.io/eww/eww.html#how-to-install-eww)
-  and follow instructions.
+  and follow their instructions.
 - And you would also need `sudo` which you already might have installed.
 - Fonts used in this widget are
   [Poiret One](https://fonts.google.com/specimen/Poiret+One),
@@ -139,21 +138,22 @@ touch eww.yuck eww.scss
 
 {{< /collapse >}}
 
-All preparations are now complete. Now, we can start (Finally! 😁).
+All preparations are now complete. Now, we can start (Finally! 😃).
 
 ## Syntax
 
-Introduction to yuck syntax, scss syntax and some handy shell commands.
+Introduction to yuck syntax, SCSS syntax and some handy shell commands.
 
 ### Yuck Syntax
 
-The above heading may be confusing for new users but it is legitimate 🤣. The
-configuration file is literally called `eww.yuck`. Which is even more funny.
+The above heading may be confusing for new users, but it is legitimate
+🤣. The configuration file is literally
+called `eww.yuck`. Which is even more funny.
 
-> Eww is configured using its own language called yuck. Using yuck, you declare
+> "EWW" is configured using its own language called yuck. Using yuck, you declare
   the structure and content of your widgets, the geometry, position, and behavior
   of any windows, as well as any state and data that will be used in your
-  widgets. Yuck is based around S-expressions, which you may know from lisp-like
+  widgets. "Yuck" is based around S-expressions, which you may know from lisp-like
   languages.
 
 Yuck is a lisp-based language (which is _based_) that uses parentheses quite
@@ -173,14 +173,14 @@ at first. But as most things you will adapt.
 1. Lastly, since I am a [Neovim](https://neovim.io) user therefore, I am 
   obligated to say this; You might want to use [nvim-parinfer](https://github.com/gpanders/nvim-parinfer)
   by [gpanders](https://github.com/gpanders) instead of the Vim version as this
-  one is written in pure Lua which is generally faster than VimL, albeit a bit
+  one is written in pure Lua and is generally faster than VimL, albeit a bit
   underdeveloped.
 {{< /admonition >}}
 
 #### Defining A Window
 
 A window is a box that stores things. In this case the "things" are known as
-widgets (and no, windows are not widgets). Eww states that a window can only
+widgets (and no, windows are not widgets). EWW states that a window can only
 house one widget. Now, a said widget may be a `box` which has the ability to
 house multiple widgets, e.g. a `label` which will display a text as later
 explained in the [Widgets That We Will Need]({{< ref "#widgets-that-we-will-need" >}})
@@ -213,7 +213,6 @@ properties mean and crosscheck them from the following table.
 {{< admonition note "DO NOT hardcode dimensions!" >}}
 Always use `%` for widths and heights.
 {{< /admonition >}}
-
 
 Learn more about properties from the [docs](https://elkowar.github.io/eww/configuration.html#defwindow-properties).
 
@@ -260,12 +259,12 @@ However, I would advise you against that since it would look congested and illeg
 
 #### Widgets That We Will Need
 
-Eww has a plethora of built-in widgets that you can use for your own custom widget.
-Out of those we will only need a few for this project which, are pretty basic.
+EWW has a plethora of built-in widgets that you can use for your own custom widget.
+Out of those we will only need a few for this project, which are pretty basic.
 
 - The [`label`](https://elkowar.github.io/eww/widgets.html#label) widget. It has
   the ability to print non-interactive text on the screen. But, it shines the
-  most when use in conjunction with buttons, boxes, eventboxes  (i.e. when
+  most when use in conjunction with buttons, boxes, eventboxes (i.e. when
   nested within other widgets).
 
   ```fennel
@@ -323,7 +322,7 @@ Learn more about other widgets and their properties from the
 Take a look at [Showcase]({{< ref "#showcase" >}}) section. Notice that 
 there are Network, Time and Battery information. Those are not interactive
 widgets but they are dynamic. Rather, they display dynamic data. Like,
-lets take the Time label at the bottom left corner. This label will display
+let's take the Time label in the bottom-left corner. This label will display
 the new time value whenever the time changes.
 
 So, if the time becomes `12:00` to `12:01`, the label will reflect that.
@@ -362,18 +361,18 @@ for this one.
 There are numerous magic variables which you will find in the
 [docs](https://elkowar.github.io/eww/magic-vars.html#eww_battery).
 
-### Scss Syntax
+### SCSS Syntax
 
-Eww widgets are styled using [Scss](https://sass-lang.com) which compiles to CSS.
-Since it is a well known language I won't be teaching you Scss/CSS; quite
+EWW widgets are styled using [SCSS](https://sass-lang.com) which compiles to CSS.
+Since it is a well known language I won't be teaching you SCSS/CSS; quite
 frankly, there are numerous sites and videos that will explain this better.
 
 Here are a few links. Keep in mind that you just need to learn CSS and then
-gloss over them to get the differences between CSS and Scss.
+gloss over them to get the differences between CSS and SCSS.
 
 - [Official Documentation &#8212; sass-lang.com](https://sass-lang.com/documentation/syntax)
-- [Beginner's Guide to Using Scss &#8212; code-boost.com](https://www.code-boost.com/beginners-guide-to-scss)
-- [The definitive guide to Scss &#8212; logrocket.com](https://blog.logrocket.com/the-definitive-guide-to-scss)
+- [Beginner's Guide to Using SCSS &#8212; code-boost.com](https://www.code-boost.com/beginners-guide-to-scss)
+- [The definitive guide to SCSS &#8212; logrocket.com](https://blog.logrocket.com/the-definitive-guide-to-scss)
 
 You may want to learn CSS first if you do not know it.
 [Learn CSS in 20 Minutes](https://youtu.be/1PnVor36_40) by
@@ -385,11 +384,11 @@ seems like a great place to start.
 
 - This is also nice to have [GTK3 CSS Overview](https://docs.gtk.org/gtk3/css-overview.html).
 
-I hate to do this to you but, most of the things that Scss provides
+I hate to do this to you but, most of the things that SCSS provides
 (like the [`use`](https://sass-lang.com/documentation/at-rules/use#configuration)
-keyword) aren't supported in the Eww Scss.
+keyword) aren't supported in the EWW SCSS.
 
-This may seem overwhelming... because you might be thinking of digesting all of the
+This may seem overwhelming... because you might be thinking of digesting all the
 above links. This is wrong. Just get a general idea of CSS and use the links as mere
 references. Use them as [Google](https://youtu.be/avCWDDox1nE). Refer to
 the documentation, tutorials and videos _only_ if you are stuck or, want to
@@ -404,7 +403,7 @@ This section will be divided into five subsections. Namely:
 - Variable Definitions
 - Module Definitions
 - Layouts and Positioning
-- Styling with Scss
+- Styling with SCSS
 
 Let's begin.
 
@@ -423,7 +422,7 @@ and `height` options in the window definition needs to be `100%`.
 ```
 
 See the [running]({{< ref "#running-the-powermenu" >}} "running the powermenu")
-section to view the Eww window.
+section to view the EWW window.
 
 {{< admonition note >}}
 You need to replace `(powermenu_layout)` with "Testing..."
@@ -438,7 +437,7 @@ As mentioned before, we need:
   Find out the key value of your battery interface which can be found from
   `ls /sys/class/power_supply` prefixed with `BAT`. Now, take a note of
   `EWW_BATTERY.BAT0.capacity` and `EWW_BATTERY.BAT0.status`
-  (this is for me.. yours might be `BAT1`, `BAT2`, etc). We will need these later.
+  (this is for me. Yours might be `BAT1`, `BAT2`, etc.). We will need these later.
 - For the network connectivity and strength, we can just use the following.
 
   ```sh
@@ -456,8 +455,7 @@ Now, incorporate these into yuck-variables.
   `date +'{"hour":"%H","min":"%M"}'`)
 
 (defpoll net :interval "100s"
-  :initial `nmcli -t -f SIGNAL,ACTIVE device wifi \
-    | awk -F':' '{if($2=="yes")print$1}'`
+  :initial `N/A`
   `nmcli -t -f SIGNAL,ACTIVE device wifi \
     | awk -F':' '{if($2=="yes")print$1}'`)
 ```
@@ -465,8 +463,8 @@ Now, incorporate these into yuck-variables.
 ### Module Definitions
 
 Dividing complex layouting into modules is not important at all. But, it will
-be useful if somthing
-decides to break or, if you want to add / remove widget(s).
+be useful if something
+decides to break or, if you want to add/remove widget(s).
 
 This section is divided into five specific sub-sections.
 
@@ -481,21 +479,21 @@ This section is divided into five specific sub-sections.
 These options or, properties can be applied to built-in widgets only. Like
 `box`, `transform`, `scroll`, `label`, etc.
 
-- **`class`**: `string` css class name.
-- **`valign`**: `string` how to align this vertically. possible values:
+- **`class`**: `string` CSS class name.
+- **`valign`**: `string` how to align this vertically. Possible values:
   `"fill"`, `"baseline"`, `"center"`, `"start"`, `"end"`.
-- **`halign`**: `string` how to align this horizontally. possible values:
+- **`halign`**: `string` how to align this horizontally. Possible values:
   `"fill"`, `"baseline"`, `"center"`, `"start"`, `"end"`.
 - **`vexpand`**: `bool` should this container expand vertically. Default: `false`.
 - **`hexpand`**: `bool` should this widget expand horizontally. Default: `false`.
-- **`width`**: `int` width of this element. note that this can not restrict the
+- **`width`**: `int` width of this element. Note that this can not restrict the
   size if the contents stretch it.
-- **`height`**: `int` height of this element. note that this can not restrict
+- **`height`**: `int` height of this element. Note that this can not restrict
   the size if the contents stretch it.
 - **`active`**: `bool` If this widget can be interacted with.
 - **`tooltip`**: `string` tooltip text (on hover).
 - **`visible`**: `bool` visibility of the widget.
-- **`style`**: `string` inline css style applied to the widget.
+- **`style`**: `string` inline CSS style applied to the widget.
 
 ### How Do These Work?
 
@@ -571,7 +569,7 @@ size = !size ? 10 : 15;
 
 ![network](./images/network.png)
 
-Finally, consider the follwing snippet.
+Finally, consider the following snippet.
 
 ```fennel
 (defwidget _network [strength offline excellent good okay slow]
@@ -608,7 +606,7 @@ Hence, take a look at the following code snippet.
 
 #### Sundial
 
-This should be the easiest of them all :trollge: Jokes aside this part
+This should be the easiest of them all :skull:. Jokes aside, this part
 needs to be refactored. But, you should get the general idea regardless.
 This module just displays the current **time-of-the-day** value. For
 instance, the time between **17:00 and 17:59** (incl.) will be deemed as
@@ -676,7 +674,7 @@ font installed. You may need to install [nerd font](https://www.nerdfonts.com/fo
 and [Phosphor Icons](https://github.com/phosphor-icons/phosphor-icons/tree/master/src/fonts).
 {{< /admonition >}}
 
-### Styling with Scss
+### Styling with SCSS
 
 I won't be explaining this. Just refer to the Sass docs.
 
@@ -750,15 +748,14 @@ $surface-red: #f87070;
 ```
 
 {{< admonition >}}
-`:class "name"` will correspond to `.name { color: pink; }` in Scss.
+`:class "name"` will correspond to `.name { color: pink; }` in SCSS.
 {{< /admonition >}}
-
 
 ## Full Code
 
 Here is the full code.
 
-```
+```txt
 .
 └── eww-powermenu
     ├── eww.scss
@@ -778,8 +775,7 @@ Here is the full code.
   :initial `date +'{"hour":"%H","min":"%M"}'`
   `date +'{"hour":"%H","min":"%M"}'`)
 (defpoll net :interval "100s"
-  :initial `nmcli -t -f SIGNAL,ACTIVE device wifi \
-    | awk -F':' '{if($2=="yes")print$1}'`
+  :initial `N/A`
   `nmcli -t -f SIGNAL,ACTIVE device wifi \
     | awk -F':' '{if($2=="yes")print$1}'`)
 
@@ -942,7 +938,7 @@ $surface-red: #f87070;
 Moment of truth. Run the widget by executing the following command.
 
 ```sh
-eww open powermenu
+EWW open powermenu
 ```
 
 And that is all really. If the widget looks like the following image
@@ -952,9 +948,9 @@ then congratulations, you have made it.
 
 There are many neat `eww` flags that might interest you. Try `eww --help`
 for starters. If anything 'does not work' then try looking at the
-[debugging]({{< ref "#debugging" >}} "debugging") section.
-[Debugging]({{< ref "#debugging" >}} "debugging") section might also help you
-in solving general problems related to Eww.
+[debugging]({{< ref "#debugging" >}} "debugging") section. The
+[debugging]({{< ref "#debugging" >}} "debugging") section might also help you
+in solving general problems related to EWW.
 
 ## Debugging
 
@@ -962,7 +958,7 @@ Following are some of the things that you _should_ do before anything else if
 the widget seems buggy or, not reflecting the changes that you've made.
 
 - Always check the logs `eww logs`. Try the updating + saving combo i.e.,
-  change a part of code then write those changes and you will see real-time
+  change a part of code then write those changes, and you will see real-time
   updates in the logs.
 - You can check the state of what variables are active in currently or, if
   a variable is even yielding any results or not by using `eww state`.
@@ -974,13 +970,13 @@ the widget seems buggy or, not reflecting the changes that you've made.
   time: {"hour":"12","min":"14"}
   ```
 
-  This will work only if widgets a.k.a Powermenu is open. If any widgets are open
+  This will work only if widgets i.e. if Powermenu is open. If any widgets are open
   then it will show the state of the variables being used by that.
 - You can also use `eww get <variable_name>` like `eww get time` for selectively
   verifying the value of a variable and if it yields correct output or, not.
   This also will print values only if the widget window is open.
 - A hot reload is always a good option. Trigger it by using `eww reload`.
-- See if the Eww daemon is running by using `eww ping` and if the output is `pong`
+- See if the EWW daemon is running by using `eww ping` and if the output is `pong`
   then it IS responsive.
 - List of windows available and opened can be seen by using `eww windows`.
 
@@ -994,14 +990,14 @@ the widget seems buggy or, not reflecting the changes that you've made.
 
   Where `disclose` is opened and rest are closed.
 - If you notice that there are predefined colors, paddings, margins,
-  etc. Then adding this `* { all: unset }` at the top of your Scss file
+  etc. Then adding this `* { all: unset }` at the top of your SCSS file
   will disable that. This should be done to disable the theming configurations that
   come with your existing GTK theme.
-- GTK Inspector is probably the most useful tool for debugging not just Eww widgets
+- GTK Inspector is probably the most useful tool for debugging not just EWW widgets
   but, GTK widgets in general. If you are stuck or, do not know what component
   you want to style then open the inspector by `eww inspector` and then select the
   component by clicking on pointer button then drop the pointer arrow onto any
-  part the eww widget window.
+  part the EWW widget window.
 
   ![eww inspector](./images/inspector.png)
 
@@ -1020,10 +1016,10 @@ the widget seems buggy or, not reflecting the changes that you've made.
   have forgotten what a specific part of code does.
 - I initally planned to do this but, decided not to as it would be too
   much. Anyhow, the idea is to separate and segregate specific part of
-  your yuck and scss code into separate files. Like putting `powermenu_layout` and
+  your yuck and SCSS code into separate files. Like putting `powermenu_layout` and
   all the modules in different files. Or, just put every module in separate files.
   You may use `(include "./path/to/file.yuck")` for importing yuck files and
-  `@import "./path/to/file.scss"` for importing Scss files.
+  `@import "./path/to/file.scss"` for importing SCSS files.
 - It is also a good idea to separate `*.yuck`, `*.scss` and script files into
   separate folders (Ahem! Directories. Pardon my French).
 - Additionally there are sub-options in `eww` as well. Note that, this is not
@@ -1045,7 +1041,7 @@ Behold! Feast your eyes! 🤩
 
 ![showcase dark](./images/featured-image.png)
 
-## Projects That Use Eww
+## Projects That Use EWW
 
 - [eww-widgets](https://github.com/Saimoomedits/eww-widgets) by [Saimoomedits](https://github.com/Saimoomedits)
 - [dotfiles](https://github.com/Battlesquid/dotfiles) by [Battlesquid](https://github.com/Battlesquid)
@@ -1061,12 +1057,12 @@ Behold! Feast your eyes! 🤩
 
 ## Resouces
 
-- [The Eww documentation website.](https://elkowar.github.io/eww)
-- [My fairly large colletion of Eww widgets.](https://github.com/dharmx/vile)
-- [Simple examples of various built-in Eww widgets by Druskus.](https://github.com/druskus20/eugh)
+- [The EWW documentation website.](https://elkowar.github.io/eww)
+- [My fairly large colletion of EWW widgets.](https://github.com/dharmx/vile)
+- [Simple examples of various built-in EWW widgets by Druskus.](https://github.com/druskus20/eugh)
 - [Example bar by Elkowar himself.](https://github.com/elkowar/eww/tree/master/examples)
-- [Examples of some Eww widgets in action by iSparsh. **(Old)**](https://github.com/iSparsh/gross)
-- [Neat, clever and original Eww widgets.](https://github.com/Vermoot/dotfiles)
+- [Examples of some EWW widgets in action by iSparsh. **(Old)**](https://github.com/iSparsh/gross)
+- [Neat, clever and original EWW widgets.](https://github.com/Vermoot/dotfiles)
   by [Vermoot](https://github.com/Vermoot)
 
 ## References

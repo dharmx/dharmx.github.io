@@ -11,7 +11,7 @@ googleAnalytics = ""
 copyright = ""
 enableRobotsTXT = true
 enableGitInfo = true
-enableEmoji = true
+enableEmoji = false
 ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
 
 [author]
@@ -80,7 +80,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     author = true
     since = 2022
     icp = ""
-    license= '<a rel="license external nofollow noopener noreffer" href="https://opensource.org/licenses/GPL-3.0" target="_blank">GPL-3.0</a>'
+    license = '<a rel="license external nofollow noopener noreffer" href="https://opensource.org/licenses/GPL-3.0" target="_blank">GPL-3.0</a>'
 
   [params.section]
     paginate = 20
