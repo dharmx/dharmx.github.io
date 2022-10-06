@@ -1,0 +1,9 @@
+{{ $lines := (sub (len .Params) 1) }}
+{{ if not $lines }}
+  {{ warnf "at least one param is required" .Position }}
+{{ else }}
+  {{ range (seq 0 $lines) }}
+    <samp>{{ $.Get . }}</samp><br/>
+  {{ end }}
+  <br/>
+{{ end }}
