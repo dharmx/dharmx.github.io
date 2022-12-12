@@ -9,7 +9,7 @@ summary: "Due to EWW's interesting choice of DSL it is hard to configure and is 
 description: "Learning the basics of EWW by building a neat Powermenu. Level, intermediate."
 
 date: "2022-08-18T18:08:53+05:30"
-lastmod: "2022-08-23T18:50:18+05:30"
+lastmod: "2022-12-12T19:43:09+05:30"
 
 tags: ["gtk", "eww"]
 keywords: ["gtk", "eww", "linux", "desktop", "aesthetic", "ui", "ux", "ui/ux", "rice", "lisp"]
@@ -146,9 +146,8 @@ Introduction to yuck syntax, SCSS syntax and some handy shell commands.
 
 ### Yuck Syntax
 
-The above heading may be confusing for new users, but it is legitimate
-🤣. The configuration file is literally
-called `eww.yuck`. Which is even more funny.
+The above heading may be confusing for new users, but it is legitimate.
+The configuration file is literally called `eww.yuck` (pun intended).
 
 > "EWW" is configured using its own language called yuck. Using yuck, you declare
   the structure and content of your widgets, the geometry, position, and behavior
@@ -160,7 +159,7 @@ Yuck is a lisp-based language (which is _based_) that uses parentheses quite
 excessively as you will see in the subsequent sections. It can be hard to read
 at first. But as most things you will adapt.
 
-{{< admonition tip "Install a syntax highlighting plugin." >}}
+{{< admonition tip "Install a syntax highlighting plugin." false >}}
 1. It is recommended to install [DSL](https://en.wikipedia.org/wiki/Domain-specific_language)
   plugins like [yuck.vim](https://github.com/elkowar/yuck.vim) for Vim users or,
   [yuck-vscode](https://github.com/owenrumney/yuck-vscode) if you use VSCode for
@@ -264,7 +263,7 @@ Out of those we will only need a few for this project, which are pretty basic.
 
 - The [`label`](https://elkowar.github.io/eww/widgets.html#label) widget. It has
   the ability to print non-interactive text on the screen. But, it shines the
-  most when use in conjunction with buttons, boxes, eventboxes (i.e. when
+  most when used in conjunction with buttons, boxes, eventboxes (i.e. when
   nested within other widgets).
 
   ```fennel
@@ -279,7 +278,7 @@ Out of those we will only need a few for this project, which are pretty basic.
     :geometry (geometry
                 :width "100%"
                 :height "100%")
-    "Hello, World!")
+    "Hello, World!") ;; this is also a label
 
 - The [`button`](https://elkowar.github.io/eww/widgets.html#button) widget.
   It just executes a command on left, right and middle click.
@@ -287,7 +286,7 @@ Out of those we will only need a few for this project, which are pretty basic.
   ```fennel
   (button :onclick "notify-send Left"
     :onrightclick "notify-send Right"
-    "Click Me!")
+    "Click Me!") ;; this is a label nested within a button
 
 - The [`box`](https://elkowar.github.io/eww/widgets.html#box) widget. It allows
   nesting widgets.
@@ -302,7 +301,11 @@ Out of those we will only need a few for this project, which are pretty basic.
     "This is also a label."
     ;; no orientation means horizontal
     (box :class "nst-bx"
-      (label :text "Hello")
+      ;; NOTE: You have to write more when you use an explicit label.
+      ;;       So, in this case, I would follow a discipline to only
+      ;;       use it when I need to apply another option to it like,
+      ;;       limit-width.
+      (label :text "Hello" :limit-width 4)
       (button :onclick "notify-send Left"
         :onmiddleclick "notify-send Middle"
         "Hello")))
@@ -341,6 +344,11 @@ Hence, consider the following.
 Here, the command `date +'{"hour":"%H","min":"%M"}'` will be executed with
 an interval of 5 seconds which will return `{"hour":"11","min":"30"}` for example.
 
+{{< admonition note "EWW can parse JSON." false >}}
+The weird format string in the `date` call is known as [JSON](https://www.json.org).
+`date +'%H:%M'` could be used instead but, know that a JSON string can also be used.
+{{< /admonition >}}
+
 Now, you just need to _bind_ this to a widget label.
 
 ```fennel
@@ -375,7 +383,7 @@ gloss over them to get the differences between CSS and SCSS.
 - [The definitive guide to SCSS &#8212; logrocket.com](https://blog.logrocket.com/the-definitive-guide-to-scss)
 
 You may want to learn CSS first if you do not know it.
-[Learn CSS in 20 Minutes](https://youtu.be/1PnVor36_40) by
+[Learn CSS in 20 Minutes](https://youtu.be/1PnVor36_40) video by
 [Web Dev Simplified](https://www.youtube.com/c/WebDevSimplified)
 seems like a great place to start.
 
@@ -392,7 +400,7 @@ This may seem overwhelming... because you might be thinking of digesting all the
 above links. This is wrong. Just get a general idea of CSS and use the links as mere
 references. Use them as [Google](https://youtu.be/avCWDDox1nE). Refer to
 the documentation, tutorials and videos _only_ if you are stuck or, want to
-implement something new and not as a textbook.
+implement something new. Do not treat them as textbooks.
 
 ## Writing The Powermenu
 
@@ -606,7 +614,7 @@ Hence, take a look at the following code snippet.
 
 #### Sundial
 
-This should be the easiest of them all :skull:. Jokes aside, this part
+This should be the easiest of them all 💀. Jokes aside, this part
 needs to be refactored. But, you should get the general idea regardless.
 This module just displays the current **time-of-the-day** value. For
 instance, the time between **17:00 and 17:59** (incl.) will be deemed as
@@ -614,7 +622,8 @@ instance, the time between **17:00 and 17:59** (incl.) will be deemed as
 
 ![sundial](./images/sundial.png)
 
-Finally, consider the following snippet (no matter how bad it is).
+Finally, consider the following snippet (no matter how bad it is). Just
+get an idea of what it does 💀.
 
 ```fennel
 (defwidget _sundial []
@@ -642,7 +651,7 @@ Finally, consider the following snippet (no matter how bad it is).
 ### Layouts and Positioning
 
 Now, we will glue all the modules and bare widgets into a single widget
-dubbed `powermenu_layout`.
+called `powermenu_layout`.
 
 ```fennel
 (defwidget powermenu_layout []
@@ -977,7 +986,7 @@ the widget seems buggy or, not reflecting the changes that you've made.
   This also will print values only if the widget window is open.
 - A hot reload is always a good option. Trigger it by using `eww reload`.
 - See if the EWW daemon is running by using `eww ping` and if the output is `pong`
-  then it IS responsive.
+  then it is responsive.
 - List of windows available and opened can be seen by using `eww windows`.
 
   ```sh
@@ -1008,7 +1017,7 @@ the widget seems buggy or, not reflecting the changes that you've made.
 ## Tips
 
 - If you are having difficulties implementing your own widget(s) then it might be a
-  great idea to look at how other people implement that and adapt and incorporate
+  great idea to look at how other people implement that and adapt + incorporate
   that into your configuration. A great place to look for those would be
   [eugh](https://github.com/druskus20/eugh), [eww-bar](https://github.com/elkowar/eww/tree/master/examples/eww-bar)
   and [my gists](https://gist.github.com/dharmx).
@@ -1058,7 +1067,7 @@ Behold! Feast your eyes! 🤩
 ## Resouces
 
 - [The EWW documentation website.](https://elkowar.github.io/eww)
-- [My fairly large colletion of EWW widgets.](https://github.com/dharmx/vile)
+- [My fairly large collection of EWW widgets.](https://github.com/dharmx/vile)
 - [Simple examples of various built-in EWW widgets by Druskus.](https://github.com/druskus20/eugh)
 - [Example bar by Elkowar himself.](https://github.com/elkowar/eww/tree/master/examples)
 - [Examples of some EWW widgets in action by iSparsh. **(Old)**](https://github.com/iSparsh/gross)
@@ -1076,5 +1085,4 @@ Behold! Feast your eyes! 🤩
 ## Ending Note
 
 If you have any questions, do not hesitate to ask them in the comments
-section!. And, I hope you enjoyed building this as much I hated writing
-this. Cheers 🍻.
+section! And, I hope you enjoyed building this. Cheers 🍻.
