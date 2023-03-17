@@ -15,7 +15,6 @@ authorLink: "https://dharmx.is-a.dev"
 license: "<a rel='license external nofollow noopener noreffer' href='https://opensource.org/licenses/GPL-3.0' target='_blank'>GPL-3.0</a>"
 
 tags: ["bspwm", "wm"]
-keywords: ["wm", "linux", "desktop", "x11"]
 categories: ["deepdive"]
 relative: true
 
@@ -84,7 +83,7 @@ full BST.
 
 For application windows to be able to spawn, BSPWM first needs to define a
 root window. Which in WM lingo is called a workspace. And, after said
-workspace(s) are defined one can now finally open an application window
+workspace(s) are defined, one can now finally open an application window
 which will be managed by BSPWM.
 
 Add on top of this information it is to be noted that BSPWM was originally
@@ -102,14 +101,12 @@ that.
   align="center"
 >}}
 
-This is the easiest part because it is intuitive. According to the figure
-there are two monitors which can be represented with an array. And workspaces
-which are branching out of the monitor.
+In this construct, the monitors stay at the topmost level. These monitors are the parents of workspaces.
 
 ## Monitors
 
 If we analyze the source then we will see that monitors are not represented
-as a multi-branched tree rather, a single branched one i.e. a linked list.
+as a multi-branched tree rather, as a single-branched one i.e. a linked list.
 Where the current monitor has links to the previous and next monitors.
 
 {{< highlight c "anchorlinenos=true,hl_inline=false,linenos=inline,hl_lines=303 16-17,linenostart=288" >}}
@@ -139,10 +136,10 @@ const int MON_LEN = 2;
 monitor_t monitors[MON_LEN];
 ```
 
-See those `prev` and `next` variables? Intuitively, the `prev` variable points
-to the previous `monitor_t` structure and `next` next. And, if either of those
-pointer variables have `NULL` then it is to be assumed that the `focused`
-monitor is at the end or, the beginning of the monitor list.
+See those `prev` and `next` variables? Here the `prev` variable points
+to the previous `monitor_t` structure and `next`, next. And, if either of those
+pointer variables has `NULL` then it is to be assumed that the `focused`
+monitor is either at the end or at the beginning of the monitor list.
 
 ## Workspaces
 
@@ -153,7 +150,7 @@ with links to previous and next desktops.
 > Workspaces are called desktops in BSPWM. They are used interchangeably.
   You will see both of them appear in this article.
 
-Therefore, see the following code snippet.
+See the following code snippet.
 
 {{< highlight c "anchorlinenos=true,linenos=inline,hl_lines=281 9-10,linenostart=273" >}}
 typedef struct desktop_t desktop_t;
@@ -212,8 +209,8 @@ $ bspc monitor primary --reset-desktops 1 2 3
 ## The BST data structure
 
 The Binary Tree data structure is a way of representing data in the form of a
-tree. A BST is a special case of tree that only has two children.
-As all trees (both natural and pragmatic) this one also has leaves and branches.
+tree. A BST is a special case of a tree that only has two children.
+As with all trees (both natural and pragmatic), this one also has leaves and branches.
 The leaves are called nodes which is the term we will use from now on.
 
 {{< image
@@ -474,9 +471,9 @@ $ bspc query --nodes --node @brother
 > 0x3000006
 ```
 
-As, you can see it gives out the window ID of the window in the left.
+As, you can see it gives out the window ID of the window on the left.
 Additionally, close the window on the left and type that same command
-into the terminal. You will see `STDERR` is being retuned instead as,
+into the terminal. You will see `STDERR` is being returned instead as
 now the `first_child` has been assigned the `NULL` pointer.
 Type the following command for verification. It will catch that
 `STDERR` and convert it to a falseish value or, trueish if not `STDERR`.
@@ -504,28 +501,28 @@ $ bspc query --nodes --node @brother && echo YES || echo NO
   align="center"
 >}}
 
-This is probably a good time to mention this what the nodes `A` and `B`
-mean. Currently, node `A` is the parent of node `B` and `1` and node `B`
-is the parent of node `2` and `3`.
+This is probably a good time to mention what nodes `A` and `B`
+mean. Currently, node `A` is the parent of nodes `B` and `1` and node `B`
+is the parent of nodes `2` and `3`.
 
 They are called parent nodes or, as BSPWM defines it, internal nodes.
 They will only appear when a `second_child` is about to be born. So,
 for example going back to the [second state]({{< ref "#second-state" >}})
-we need to understand that the parent `A` will not appear until it is time
+we need to understand that parent `A` will not appear until it is time
 for a second child `2` to be born. So, in this case, _before_ the second
 child is born the first child is shifted to the left of a new node and
-the second child attached to the right of that new node. And, that new
+the second child is attached to the right of that new node. And, that new
 node now becomes the parent of those two nodes. Additionally, keep in
 mind that internal nodes are not visible. When a node gets divided
 in two an internal node gets created and stays below the `first_child`
 and `second_child`.
 
 {{< admonition note "Why does the second child get assigned to the right side of the parent?" >}}
-In automatic modes the direction on which the windows will be fragmented
-is called the initial polarity. And, by default that polarity is set
+In automatic modes the direction in which the windows will be fragmented
+is called the initial polarity. And, by default, that polarity is set
 to the `second_child` (here `second_child` means the right side of the parent).
 That is why you see `1` shifted to the left and `2` to the right.
-And, similarly `2` gets assigned to the left and `3` to the right.
+And, similarly, `2` gets assigned to the left and `3` to the right.
 
 This initial polarity can be changed by issuing the following command.
 
@@ -538,9 +535,8 @@ $ bspc config initial_polarity second_child # restore
 
 {{< /admonition >}}
 
-Moving forward, we now need to confirm a few things in order to make
-things a bit more clearer. For starters move to an empty desktop/workspace
-and open a window and see if it the window has any parents or, not.
+Moving forward, we now need to confirm a few things to make things a bit clearer.
+For starters move to an empty desktop/workspace and open a window and see if the window has any parents or, not.
 Do this by issuing the following command.
 
 ```bash
@@ -610,7 +606,7 @@ $ bspc query -N -n @parent/
 
 > Keep the third state diagram in mind.
 
-Great! They are different. Now, we will navigate towards `A` through `B`.
+Great! They are different. Now, we will navigate toward `A` through `B`.
 For achieving this type the following.
 
 ```bash
@@ -1134,7 +1130,7 @@ $ bspc query -N -n .leaf.\!hidden # include receptacles
 > 0x0260002C
 ```
 
-Note that, the `!` symbol cannot be used in cancelling pre-selections. They use
+Note that, the `!` symbol cannot be used in canceling pre-selections. They use
 the tilde `~` instead. So, effectively, after you have triggered the preselection
 you can then cancel it by either passing the `cancel` argument explicitly or,
 by prepending `~` before the same direction to cancel it.
@@ -1178,10 +1174,10 @@ $ bspc node --ratio -150
 ```
 
 You may also notice the usage of `/` and `@` from the previous examples. They are
-basically, node path selectors, they are mainly used for navigating through the
+basically, node path selectors that are mainly used for navigating through the
 node tree. Think of them as when you navigate through file trees using `cd` and
 shell completions by using `<TAB>` and `<SPACE>` keys. In short, the `@` denotes
-the start of a path navigation and `/` are used to get inside the nodes.
+the start of path navigation and `/` is used to get inside the nodes.
 
 ```bash
 # . can be seen as @ and / can be seen as getting
@@ -1192,7 +1188,7 @@ bspc node @parent/brother/parent/second --rotate 270
 
 Next we have `*`, `:` and `^` symbols. You will see these being used
 mostly in setting or, removing rules. The `*` symbol is used to select a
-group of instance names and applying or, removing rules on them.
+group of instance names, applying and removing rules on them.
 
 ```bash
 # let there be no borders :sunrise:
@@ -1202,8 +1198,8 @@ bspc rule --remove St:\*
 ```
 
 `:` is used to select a subset of a class name which are called
-instance names. For example, Firefox allows us to set instance
-specific rules at a window with the instance name `Places`.
+instance names. For example, Firefox allows us to set instance-specific
+rules at a window with the instance name `Places`.
 Although, these are also used for path selections as well.
 
 ```bash
@@ -1211,7 +1207,7 @@ bspc rule --add firefox:Places state=floating center=on
 bspc rule --add firefox:Navigator state=floating center=on border=off
 ```
 
-`^` is used for selecting `Nth` node, desktop and monitor. It acts as a serial
+`^` is used for selecting the `Nth` node, desktop and monitor. It acts as a serial
 number. So, if desktop names consist of weird glyphs or, emojis then these
 serials will keep us safe from ambiguity.
 
@@ -1225,8 +1221,8 @@ $ bspc query -D -d \^3#next
 ```
 
 `#` has little to no use at all. It is a descriptor symbol.
-It needs to exist after you have selected a reference which consists of
-monitors, desktops and of course, nodes.
+It needs to exist after you have selected a reference that
+consists of monitors, desktops and of course, nodes.
 
 ```bash
 $ bspc query -D -d \^2#older
@@ -1242,7 +1238,7 @@ $ bspc query -D -d next#next#next#next#next
 
 ### Rules
 
-BSPWM allows custom settings for individual nodes. BSPWM calls it window rules.
+BSPWM allows custom settings for individual nodes. BSPWM calls it to window rules.
 Besides the common stuff like adding, removing or, listing window rules we're instead
 going to discuss the `--one-shot` flag. Essentially, it allows a rule to take effect
 only once. For example, there is a neat way of spawning terminal windows of a certain
@@ -1272,7 +1268,7 @@ bspc rule -a St:st -o node=@^1:^2:/2/2
 
 BSPWM allows the user to listen to BSPWM events continuously and provides
 metadata related to those events. The user may continuously read those data
-or, use the event type itself to perform an operation on that event release.
+or, use the event type itself to operate on that event release.
 BSPWM categorizes events into six types `all`, `monitor`, `desktop`, `node`, `report`
 and `pointer_action`. Additionally, it allows a `FIFO` flags that you can
 utilize as well.
@@ -1294,8 +1290,8 @@ This is a pretty ordinary way of using event subscriptions. You can also script
 can also be scripted, etc. For getting a feel for what event subscriptions are
 capable of, we will be making a new layout in `BSPWM` called `tall`.
 
-`tall` is the most default `master-stack` layout where on one side, there is one
-large window, called the **master** window and on another side there are a stack
+`tall` is the default `master-stack`` layout where on one side, there is one
+large window, called the **master** window and on another side, there are a stack
 of windows called the slave windows. Hence, consider the following code.
 
 {{< highlight bash "anchorlinenos=true,hl_inline=false,linenos=inline" >}}
@@ -1317,7 +1313,7 @@ done < <(bspc subscribe node_add node_remove)
 unset N
 {{< /highlight >}}
 
-From the above code we will be first subscribing to `node_add` and `node_remove`
+From the above code, we will be first subscribing to `node_add` and `node_remove`
 BSPWM events. This is because, we need to resize all the slave nodes and make
 them have the same heights when a new window is added AND when a window is removed
 from the slave stack or, the master. The resizing is done by first turning the
@@ -1336,8 +1332,8 @@ See the following demonstration for a better understanding.
 
 ### Receptacles
 
-A leaf node that doesn’t hold any window is called a receptacle. When a node is
-inserted on a receptacle in automatic mode, it will replace the receptacle. A
+A leaf node that doesn’t hold any window is called a receptacle. When a node is inserted
+into a receptacle in automatic mode, it will replace the receptacle. A
 receptacle can be inserted on a node, preselected and killed. Receptacles can
 therefore be used to build a tree whose leaves are receptacles. Using the
 appropriate rules, one can then send windows on the leaves of this tree.
@@ -1365,8 +1361,8 @@ bspc node 0x02E00006 --to-node "$(bspc query --nodes --node '@/second')"
 
 In BSPWM, a world state is the combined state of all BSPWM components
 such as monitor info, desktop info and node info all represented in the
-form of a JSON structure. It can be used to add logic and functionalities
-on that data. It can also be treated as a debugging mechanism.
+form of a JSON structure. It can be used to add logic and functionalities to that data.
+It can also be treated as a debugging mechanism.
 
 {{< admonition note "Why is dump state filled with unnecessary data?" >}}
 You can narrow down the information you want by piping `bspc wm -d` through
@@ -1382,23 +1378,25 @@ bspc query --tree --node
 bspc query -T -n @/1
 bspc query -T -n @/first -n biggest
 ```
+
 {{< /admonition >}}
 
-But, on the user side it is mostly used for saving and loading a WM state
-as a layout. Essentially, one saves a state to a file, then write scripts to
+But, on the user side, it is mostly used for saving and loading a WM state
+as a layout. Essentially, one saves a state to a file, then writes scripts to
 replace specific parts related to window nodes with receptacles. And, then
 formulate one-shot rules that will redirect a node to a particular parent when
 spawned.
 
-In the following example we will be using the `tall.sh` layout script from the
+In the following example, we will be using the `tall.sh` layout script from the
 [Event Subscriptions]({{< ref "#event-subscriptions" >}}) section and open
-five windows and then record the state and saving the `STDOUT` into `state.json`.
+five windows and then record the state and save the `STDOUT` into `state.json`.
 Then we will be using the `extract_canvas` Python script (included in the
-[examples](https://github.com/baskerville/bspwm/tree/master/examples/receptacles) directory of the BSPWM repository) to replace the window nodes with
+[examples](https://github.com/baskerville/bspwm/tree/master/examples/receptacles)
+directory of the BSPWM repository) to replace the window nodes with
 receptacles and then saving the `STDOUT` as a JSON file called `load.json`. Then
 we will be using another script called `induce_rules` to create some rules out
 of the nodes. Finally, we will be re-launching five windows again after loading
-`state.json` file.
+the `state.json` file.
 
 ```bash
 $ tall
@@ -1447,10 +1445,10 @@ that `tall.sh` script or, whatever.
 ## Ending Note
 
 Phew! That was a lot. I did NOT know what I was getting into when I
-started writing this 😅. Although, hopefully this
+started writing this 😅. Although, hopefully this,
 won't end here and next I might write another article on how to extend
 and customize BSPWM (that is still light years away). Additionally, Some
-sections did not make it as it was getting a bit too long like **Motions**,
+sections did not make into this article as it was getting a bit too long like **Motions**,
 **Extensions** and **History**.
 
 Lastly, I hope you have learned something new. Cheers 🍻.

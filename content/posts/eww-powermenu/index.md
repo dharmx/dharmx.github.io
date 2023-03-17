@@ -3,7 +3,7 @@ draft: false
 
 title: "EWW Powermenu"
 subtitle: "A classy powermenu using EWW."
-summary: "Due to EWW's interesting choice of DSL it is hard to configure and is very DIY.
+summary: "Due to EWW's interesting choice of DSL it's hard to configure and is DIY.
          Plus, there aren't any definitive tutorials. Hence! I will try to ease you through
          the process of configuring EWW while building a classy Powermenu."
 description: "Learning the basics of EWW by building a neat Powermenu. Level, intermediate."
@@ -12,8 +12,7 @@ date: "2022-08-18T18:08:53+05:30"
 lastmod: "2022-12-12T19:43:09+05:30"
 
 tags: ["gtk", "eww"]
-keywords: ["gtk", "eww", "linux", "desktop", "aesthetic", "ui", "ux", "ui/ux", "rice", "lisp"]
-categories: ["bling"]
+categories: ["guide"]
 relative: true
 
 author: "dharmx"
@@ -49,13 +48,6 @@ demo and examples about this are quite scarce. And the examples are either
 too complex or, very poorly documented and not to mention most of them are
 not even documented.
 
-{{< figure
-  src="./svgs/fail.svg"
-  rel="https://www.freepik.com/vectors/fail"
-  title="Fail"
-  caption="Fail vector created by jcomp - www.freepik.com"
->}}
-
 ## Prerequisites
 
 Some requirements about what you'd need to get started like what OS will this
@@ -85,7 +77,7 @@ Packages that are needed for this to work correctly.
 
 {{< admonition tip "Efficiently look for packages for any distro." >}}
 You may use [command-not-found](https://command-not-found.com) if
-you do not know what a package is called for your distro (Arch's and 
+you do not know what a package is called for your distro (Arch's and
 Debian's package naming conventions are quite different).
 {{< /admonition >}}
 
@@ -1023,7 +1015,7 @@ the widget seems buggy or, not reflecting the changes that you've made.
   and [my gists](https://gist.github.com/dharmx).
 - Commenting your code is always a good idea as, it will serve as a guide if you
   have forgotten what a specific part of code does.
-- I initally planned to do this but, decided not to as it would be too
+- I initially planned to do this but, decided not to as it would be too
   much. Anyhow, the idea is to separate and segregate specific part of
   your yuck and SCSS code into separate files. Like putting `powermenu_layout` and
   all the modules in different files. Or, just put every module in separate files.
@@ -1052,27 +1044,26 @@ Behold! Feast your eyes! 🤩
 
 ## Projects That Use EWW
 
-- [eww-widgets](https://github.com/Saimoomedits/eww-widgets) by [Saimoomedits](https://github.com/Saimoomedits)
-- [dotfiles](https://github.com/Battlesquid/dotfiles) by [Battlesquid](https://github.com/Battlesquid)
-- [eww-bar](https://github.com/elkowar/eww/tree/master/examples) by [elkowar](https://github.com/elkowar)
-- [gross](https://github.com/iSparsh/gross) by [iSparsh](https://github.com/iSparsh)
-- [hotfiles](https://github.com/Syndrizzle/hotfiles) by [Syndrizzle](https://github.com/Syndrizzle)
-- [dotfiles](https://github.com/janleigh/dotfiles) by [janleigh](https://github.com/janleigh)
-- [vile](https://github.com/dharmx/vile) by [dharmx](https://github.com/dharmx)
-- [dotfiles-v2](https://github.com/AlphaTechnolog/dotfiles-v2) by [AlphaTechnolog](https://github.com/AlphaTechnolog)
-- [dotfiles](https://github.com/siduck/dotfiles) by [siduck](https://github.com/siduck)
-- [bspdots](https://github.com/rxyhn/bspdots) by [rxyhn](https://github.com/rxyhn)
-- [widgets](https://github.com/adi1090x/widgets) by [adi1090x](https://github.com/adi1090x)
+- [eww-widgets](https://github.com/Saimoomedits/eww-widgets) by {{< person "https://github.com/Saimoomedits" Saimoomedits >}}.
+- [dotfiles](https://github.com/Battlesquid/dotfiles) by {{< person "https://github.com/Battlesquid" Battlesquid >}}.
+- [eww-bar](https://github.com/elkowar/eww/tree/master/examples) by {{< person "https://github.com/elkowar" elkowar >}}.
+- [gross](https://github.com/iSparsh/gross) by {{< person "https://github.com/iSparsh" iSparsh >}}.
+- [hotfiles](https://github.com/Syndrizzle/hotfiles) by {{< person "https://github.com/Syndrizzle" Syndrizzle >}}.
+- [dotfiles](https://github.com/janleigh/dotfiles) by {{< person "https://github.com/janleigh" janleigh >}}.
+- [vile](https://github.com/dharmx/vile) by {{< person "https://github.com/dharmx" dharmx >}}.
+- [dotfiles-v2](https://github.com/AlphaTechnolog/dotfiles-v2) by {{< person "https://github.com/AlphaTechnolog" AlphaTechnolog >}}.
+- [dotfiles](https://github.com/siduck/dotfiles) by {{< person "https://github.com/siduck" siduck >}}.
+- [bspdots](https://github.com/rxyhn/bspdots) by {{< person "https://github.com/rxyhn" rxyhn >}}.
+- [widgets](https://github.com/adi1090x/widgets) by {{< person "https://github.com/adi1090x" adi1090x >}}.
 
 ## Resouces
 
 - [The EWW documentation website.](https://elkowar.github.io/eww)
-- [My fairly large collection of EWW widgets.](https://github.com/dharmx/vile)
-- [Simple examples of various built-in EWW widgets by Druskus.](https://github.com/druskus20/eugh)
-- [Example bar by Elkowar himself.](https://github.com/elkowar/eww/tree/master/examples)
-- [Examples of some EWW widgets in action by iSparsh. **(Old)**](https://github.com/iSparsh/gross)
-- [Neat, clever and original EWW widgets.](https://github.com/Vermoot/dotfiles)
-  by [Vermoot](https://github.com/Vermoot)
+- [My fairly large collection of EWW widgets.](https://github.com/dharmx/vile) by {{< person "https://github.com/dharmx" dharmx >}}.
+- [Simple examples of various builtin widgets](https://github.com/druskus20/eugh) by {{< person "https://github.com/druskus20" druskus20 >}}.
+- [Example](https://github.com/elkowar/eww/tree/master/examples) by {{< person "https://github.com/elkowar" elkowar >}}.
+- [Examples of some EWW widgets in action **(Old)**](https://github.com/iSparsh/gross) by {{< person "https://github.com/iSparsh" iSparsh >}}.
+- [Neat, clever and original EWW widgets](https://github.com/Vermoot/dotfiles) by {{< person "https://github.com/Vermoot" Vermoot >}}.
 
 ## References
 
@@ -1084,5 +1075,5 @@ Behold! Feast your eyes! 🤩
 
 ## Ending Note
 
-If you have any questions, do not hesitate to ask them in the comments
-section! And, I hope you enjoyed building this. Cheers 🍻.
+Let me know if you have any article requests involving EWW.
+And, I hope you enjoyed building this. Cheers 🍻.
