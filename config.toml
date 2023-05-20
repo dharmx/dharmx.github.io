@@ -1,5 +1,5 @@
 baseURL = ""
-theme = "LoveIt"
+theme = "DoIt"
 themesDir = "themes"
 title = "dead airspace"
 defaultContentLanguage = "en"
@@ -187,7 +187,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
   [params.typeit]
     speed = 100
     cursorSpeed = 1000
-    cursorChar = "|"
+    cursorChar = "┃"
     duration = -1
 
   [params.seo]
@@ -195,7 +195,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     thumbnailUrl = "/images/dead-airspace.png"
 
   [params.cookieconsent]
-    enable = true
+    enable = false
     [params.cookieconsent.content]
       message = ""
       dismiss = ""
