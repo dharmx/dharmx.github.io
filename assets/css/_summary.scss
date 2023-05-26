@@ -1,0 +1,11 @@
+.home[posts] {
+  .summary {
+    border-bottom: 1.5px dashed $global-border-color;
+    [theme=dark] & {
+      border-bottom: 1.5px dashed $global-border-color-dark;
+    }
+    [theme=black] & {
+      border-bottom: 1.5px dashed $global-border-color-black;
+    }
+  }
+}

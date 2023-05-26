@@ -1,4 +1,4 @@
-// Dosis Bold
+// Dosis Bold{{{
 @font-face {
   font-family: Dosis;
   font-style: normal;
@@ -53,7 +53,9 @@
   font-weight: 600;
   src: local("Dosis SemiBold"), local("Dosis-SemiBold"), url("/fonts/Dosis/Dosis-SemiBold.ttf") format("truetype");
 }
+// }}}
 
+// {{{
 // Iosevka Nerd Font Bold
 @font-face {
   font-family: "Iosevka Nerd Font";
@@ -93,6 +95,7 @@
   font-weight: 600;
   src: local("Iosevka Thin Nerd Font Complete"), url("/fonts/Iosevka/Iosevka Thin Nerd Font Complete.ttf") format("truetype");
 }
+// }}}
 
 // Phosphor Glyph Font
 @font-face {
