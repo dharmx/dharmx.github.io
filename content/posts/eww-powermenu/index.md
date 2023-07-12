@@ -1044,26 +1044,26 @@ Behold! Feast your eyes! 🤩
 
 ## Projects That Use EWW
 
-- [eww-widgets](https://github.com/Saimoomedits/eww-widgets) by {{< person "https://github.com/Saimoomedits" Saimoomedits >}}.
-- [dotfiles](https://github.com/Battlesquid/dotfiles) by {{< person "https://github.com/Battlesquid" Battlesquid >}}.
-- [eww-bar](https://github.com/elkowar/eww/tree/master/examples) by {{< person "https://github.com/elkowar" elkowar >}}.
-- [gross](https://github.com/iSparsh/gross) by {{< person "https://github.com/iSparsh" iSparsh >}}.
-- [hotfiles](https://github.com/Syndrizzle/hotfiles) by {{< person "https://github.com/Syndrizzle" Syndrizzle >}}.
-- [dotfiles](https://github.com/janleigh/dotfiles) by {{< person "https://github.com/janleigh" janleigh >}}.
-- [vile](https://github.com/dharmx/vile) by {{< person "https://github.com/dharmx" dharmx >}}.
-- [dotfiles-v2](https://github.com/AlphaTechnolog/dotfiles-v2) by {{< person "https://github.com/AlphaTechnolog" AlphaTechnolog >}}.
-- [dotfiles](https://github.com/siduck/dotfiles) by {{< person "https://github.com/siduck" siduck >}}.
-- [bspdots](https://github.com/rxyhn/bspdots) by {{< person "https://github.com/rxyhn" rxyhn >}}.
-- [widgets](https://github.com/adi1090x/widgets) by {{< person "https://github.com/adi1090x" adi1090x >}}.
+- [eww-widgets](https://github.com/Saimoomedits/eww-widgets) by {{< person "https://github.com/Saimoomedits" Saimoomedits >}}
+- [dotfiles](https://github.com/Battlesquid/dotfiles) by {{< person "https://github.com/Battlesquid" Battlesquid >}}
+- [eww-bar](https://github.com/elkowar/eww/tree/master/examples) by {{< person "https://github.com/elkowar" elkowar >}}
+- [gross](https://github.com/iSparsh/gross) by {{< person "https://github.com/iSparsh" iSparsh >}}
+- [hotfiles](https://github.com/Syndrizzle/hotfiles) by {{< person "https://github.com/Syndrizzle" Syndrizzle >}}
+- [dotfiles](https://github.com/janleigh/dotfiles) by {{< person "https://github.com/janleigh" janleigh >}}
+- [vile](https://github.com/dharmx/vile) by {{< person "https://github.com/dharmx" dharmx >}}
+- [dotfiles-v2](https://github.com/AlphaTechnolog/dotfiles-v2) by {{< person "https://github.com/AlphaTechnolog" AlphaTechnolog >}}
+- [dotfiles](https://github.com/siduck/dotfiles) by {{< person "https://github.com/siduck" siduck >}}
+- [bspdots](https://github.com/rxyhn/bspdots) by {{< person "https://github.com/rxyhn" rxyhn >}}
+- [widgets](https://github.com/adi1090x/widgets) by {{< person "https://github.com/adi1090x" adi1090x >}}
 
 ## Resouces
 
 - [The EWW documentation website.](https://elkowar.github.io/eww)
-- [My fairly large collection of EWW widgets.](https://github.com/dharmx/vile) by {{< person "https://github.com/dharmx" dharmx >}}.
-- [Simple examples of various builtin widgets](https://github.com/druskus20/eugh) by {{< person "https://github.com/druskus20" druskus20 >}}.
-- [Example](https://github.com/elkowar/eww/tree/master/examples) by {{< person "https://github.com/elkowar" elkowar >}}.
-- [Examples of some EWW widgets in action **(Old)**](https://github.com/iSparsh/gross) by {{< person "https://github.com/iSparsh" iSparsh >}}.
-- [Neat, clever and original EWW widgets](https://github.com/Vermoot/dotfiles) by {{< person "https://github.com/Vermoot" Vermoot >}}.
+- [My fairly large collection of EWW widgets.](https://github.com/dharmx/vile) by {{< person "https://github.com/dharmx" dharmx >}}
+- [Simple examples of various builtin widgets](https://github.com/druskus20/eugh) by {{< person "https://github.com/druskus20" druskus20 >}}
+- [Example](https://github.com/elkowar/eww/tree/master/examples) by {{< person "https://github.com/elkowar" elkowar >}}
+- [Examples of some EWW widgets in action **(Old)**](https://github.com/iSparsh/gross) by {{< person "https://github.com/iSparsh" iSparsh >}}
+- [Neat, clever and original EWW widgets](https://github.com/Vermoot/dotfiles) by {{< person "https://github.com/Vermoot" Vermoot >}}
 
 ## References
 
