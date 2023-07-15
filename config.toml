@@ -180,9 +180,20 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       Trello = true
     [params.page.comment]
       enable = true
-      [params.page.comment.disqus]
+      [params.page.comment.waline]
         enable = true
-        shortname = "dead-airspace"
+        serverURL = "https://waline-dharmx.vercel.app"
+        pageview = true
+        comment = true
+        emoji = ['https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo']
+        meta = ['dharmx', 'dharmx.dev@gmail.com', 'https://dharmx.is-a.dev']
+        requiredMeta = []
+        login = 'enable'
+        wordLimit = 0
+        pageSize = 10
+        imageUploader = true
+        highlighter = true
+        texRenderer = true
 
   [params.typeit]
     speed = 100
