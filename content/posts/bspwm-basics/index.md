@@ -947,7 +947,8 @@ $ bspc node 0x01A00006.tiled -t fullscreen
 $ bspc node west -t floating
 ```
 
-{{< admonition quote "What do these states mean?" >}}
+#### What do these states mean?
+
 Window state definitions and behaviors.
 
 - `tiled`: Its size and position are determined by the window tree.
@@ -957,15 +958,9 @@ Window state definitions and behaviors.
             space, it is still part of the window tree.
 - `fullscreen`: Fills its monitor rectangle and has no borders.
 
-{{< collapse summary="Following is a demonstration of a terminal window that undergoes several state changes." >}}
-{{< image
-  src="./gifs/state.gif"
-  title="Node States"
-  caption="Demonstrating various node states!"
-  align="center"
->}}
-{{< /collapse >}}
-{{< /admonition >}}
+Following is a demonstration of a terminal window that undergoes several state changes.
+
+{{< image src="./gifs/state.gif" title="Node States" caption="Demonstrating various node states!" align="center" >}}
 
 You can create way more complex functionalities using a script and combining
 the `STDLIB` of that scripting language or, a shell script with `bspc`
