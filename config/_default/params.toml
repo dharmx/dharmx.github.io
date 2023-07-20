@@ -1,0 +1,211 @@
+defaultTheme = "auto"
+gitRepo = "https://github.com/dharmx/dharmx.github.io"
+fingerprint = ""
+enablePWA = true
+dateFormat = "2006-01-02"
+title = "dead airspace"
+description = "A repository of my ramblings, findings and projects. Hope you find these useful in some way."
+images = ["/images/dead-airspace.png"]
+bundle = true
+
+[header]
+desktopMode = "fixed"
+mobileMode = "auto"
+
+[header.title]
+logo = "/favicons/favicon.ico"
+name = "dead airspace"
+pre = ""
+post = ""
+typeit = true
+
+[footer]
+enable = true
+custom = ""
+hostedOn = '<a title="is-a.dev" href="https://www.is-a.dev/" target="_blank" rel="noopener noreffer">is-a.dev</a>'
+hugo = false
+copyright = true
+author = true
+since = 2022
+icp = ""
+license = '<a rel="license external nofollow noopener noreffer" href="https://opensource.org/licenses/GPL-3.0" target="_blank">GPL-3.0</a>'
+
+[section]
+paginate = 20
+dateFormat = "01-02"
+rss = 10
+
+[list]
+paginate = 20
+dateFormat = "01-02"
+rss = 10
+
+[app]
+title = "dead airspace"
+noFavicon = false
+svgFavicon = "/favicons/favicon.ico"
+themeColor = "#ffffff"
+iconColor = "#5bbad5"
+tileColor = "#da532c"
+
+[search]
+enable = true
+type = "lunr"
+contentLength = 4000
+placeholder = "Query Database"
+maxResultLength = 10
+snippetLength = 30
+highlightTag = "em"
+absoluteURL = false
+
+[home]
+rss = 10
+
+[home.profile]
+enable = true
+gravatarEmail = "dharmx.dev@gmail.com"
+avatarURL = "/images/profile.png"
+title = "Greetings. Travellers."
+subtitle = "This is dharmx, your operator. Be advised, you have entered dead-airspace, a feedback loop of corrupt transmissions. This signal is being broadcasted from an abandoned space station. Traversing aimlessly through dead-space recording and archiving its findings. Hope you find these recordings useful if not, entertaining."
+typeit = true
+social = true
+disclaimer = "Tread Carefully."
+
+[home.posts]
+enable = true
+paginate = 6
+
+[social]
+GitHub = "dharmx"
+Gitlab = "dharmx"
+Spotify = "0zghyzmplyhbpbam3p6p8koz3"
+Discord = "dharmx#2556"
+Email = "dharmx.dev@gmail.com"
+RSS = "/index.xml"
+
+[sponsor]
+enable = true
+bio = "If you find this journal helpful, please consider sponsoring."
+link = "https://ko-fi.com/dharmx"
+
+[page]
+hiddenFromHomePage = false
+hiddenFromSearch = false
+twemoji = true
+lightgallery = true
+ruby = true
+fraction = true
+fontawesome = true
+linkToMarkdown = true
+rssFullText = false
+linkToSource = "https://github.com/dharmx/dharmx.github.io/blob/main/content/{path}"
+linkToEdit = "https://github.com/dharmx/dharmx.github.io/edit/main/content/{path}"
+linkToReport = "https://github.com/dharmx/dharmx.github.io/issues/new?title=[REPORT]%20{title}&body=|Field|Value|%0A|-|-|%0A|Title|{title}|%0A|Url|{url}|%0A|Filename|https://github.com/dharmx/dharmx.github.io/blob/main/content/{path}|"
+pageStyle = "normal"
+
+[page.toc]
+enable = true
+keepStatic = false
+auto = true
+
+[page.code]
+copy = true
+maxShownLines = 50
+
+[page.math]
+enable = true
+inlineLeftDelimiter = ""
+inlineRightDelimiter = ""
+blockLeftDelimiter = ""
+blockRightDelimiter = ""
+copyTex = true
+mhchem = true
+
+[page.mapbox]
+accessToken = "pk.eyJ1IjoiZGlsbG9uenEiLCJhIjoiY2s2czd2M2x3MDA0NjNmcGxmcjVrZmc2cyJ9.aSjv2BNuZUfARvxRYjSVZQ"
+lightStyle = "mapbox://styles/mapbox/light-v10?optimize=true"
+darkStyle = "mapbox://styles/mapbox/dark-v10?optimize=true"
+navigation = true
+geolocate = true
+scale = true
+fullscreen = true
+
+[page.share]
+enable = true
+Twitter = true
+Facebook = true
+Linkedin = true
+Whatsapp = true
+Pinterest = true
+Tumblr = true
+HackerNews = false
+Reddit = true
+Pocket = true
+Evernote = true
+Trello = true
+
+[page.comment]
+enable = true
+
+[page.comment.waline]
+enable = true
+serverURL = "https://waline-dharmx.vercel.app"
+pageview = true
+comment = true
+emoji = ['https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo']
+meta = ['dharmx', 'dharmx.dev@gmail.com', 'https://dharmx.is-a.dev']
+requiredMeta = []
+login = 'enable'
+wordLimit = 0
+pageSize = 10
+imageUploader = true
+highlighter = true
+texRenderer = true
+
+[typeit]
+speed = 100
+cursorSpeed = 1000
+cursorChar = "┃"
+duration = -1
+
+[seo]
+image = "/images/dead-airspace.png"
+thumbnailUrl = "/images/dead-airspace.png"
+
+[cookieconsent]
+enable = false
+
+[cookieconsent.content]
+message = ""
+dismiss = ""
+link = ""
+
+[analytics]
+enable = false
+
+[analytics.google]
+id = ""
+anonymizeIP = true
+
+[analytics.fathom]
+id = ""
+server = ""
+
+[analytics.baidu]
+id = ""
+
+[analytics.umami]
+data_website_id = ""
+src = ""
+data_domains = ""
+
+[analytics.plausible]
+data_domain = ""
+src = ""
+
+[cdn]
+data = ""
+
+[compatibility]
+polyfill = true
+objectFit = true

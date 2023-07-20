@@ -31,10 +31,10 @@ hiddenFromSearch: false
 twemoji: false
 lightgallery: true
 ruby: true
-fraction: false
+fraction: true
 fontawesome: true
 linkToMarkdown: true
-rssFullText: false
+rssFullText: true
 ---
 
 # Introduction

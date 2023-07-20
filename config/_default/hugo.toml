@@ -1,0 +1,15 @@
+baseURL = ""
+theme = "DoIt"
+themesDir = "themes"
+title = "dead airspace"
+defaultContentLanguage = "en"
+languageCode = "en"
+languageName = "English"
+hasCJKLanguage = false
+paginate = 12
+googleAnalytics = ""
+copyright = ""
+enableRobotsTXT = true
+enableGitInfo = true
+enableEmoji = true
+ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]

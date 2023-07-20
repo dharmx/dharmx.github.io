@@ -1,0 +1,33 @@
+[highlight]
+codeFences = true
+guessSyntax = true
+lineNumbersInTable = true
+noClasses = false
+anchorLineNos = true
+hl_inline = false
+lineNos = true
+tabWidth = 4
+
+[goldmark]
+[goldmark.extensions]
+definitionList = true
+footnote = true
+linkify = true
+strikethrough = true
+table = true
+taskList = true
+typographer = true
+
+[goldmark.renderer]
+unsafe = true
+
+[goldmark.parser]
+[goldmark.parser.attribute]
+block = false
+title = true
+autoHeadingID = true
+autoHeadingIDType = "github"
+
+[tableOfContents]
+startLevel = 2
+endLevel = 6

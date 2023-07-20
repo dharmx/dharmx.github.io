@@ -28,12 +28,12 @@ toc:
 hiddenFromHomePage: false
 hiddenFromSearch: false
 twemoji: false
-lightgallery: false
-ruby: false
-fraction: false
-fontawesome: false
+lightgallery: true
+ruby: true
+fraction: true
+fontawesome: true
 linkToMarkdown: true
-rssFullText: false
+rssFullText: true
 ---
 
 # Introduction

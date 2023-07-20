@@ -1,0 +1,35 @@
+[[main]]
+weight = 1
+identifier = "journals"
+pre = "<i class='fas fa-newspaper fa-fw'></i>"
+post = ""
+name = "Journals"
+url = "/posts/"
+title = ""
+
+[[main]]
+weight = 2
+identifier = "tags"
+pre = "<i class='fas fa-tag fa-fw'></i>"
+post = ""
+name = "Tags"
+url = "/tags/"
+title = ""
+
+[[main]]
+weight = 3
+identifier = "categories"
+pre = "<i class='fas fa-stream fa-fw'></i>"
+post = ""
+name = "Categories"
+url = "/categories/"
+title = ""
+
+[[main]]
+weight = 4
+identifier = "github"
+pre = "<i class='fab fa-github fa-fw' aria-hidden='true'></i>"
+post = ""
+name = ""
+url = "https://github.com/dharmx/dharmx.github.io"
+title = "GitHub"
