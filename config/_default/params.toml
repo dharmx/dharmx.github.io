@@ -152,9 +152,18 @@ enable = true
 serverURL = "https://waline-dharmx.vercel.app"
 pageview = true
 comment = true
-emoji = ['https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo']
-meta = ['dharmx', 'dharmx.dev@gmail.com', 'https://dharmx.is-a.dev']
+emoji = [
+  "https://unpkg.com/@waline/emojis@1.1.0/tw-emoji",
+  "https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo",
+  "https://unpkg.com/@waline/emojis@1.1.0/alus",
+  "https://unpkg.com/@waline/emojis@1.1.0/bmoji",
+  "https://unpkg.com/@waline/emojis@1.1.0/bilibili",
+  "https://unpkg.com/@waline/emojis@1.1.0/qq",
+  "https://unpkg.com/@waline/emojis@1.1.0/tieba"
+]
+meta = []
 requiredMeta = []
+reaction = true
 login = 'enable'
 wordLimit = 0
 pageSize = 10
