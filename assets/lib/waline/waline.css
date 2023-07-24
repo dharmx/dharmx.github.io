@@ -3,7 +3,7 @@
 /* stylelint-disable alpha-value-notation */
 
 :root {
-  --waline-font-size: 1rem;
+  --waline-font-size: 1.05rem;
   --waline-white: #fff;
   --waline-light-grey: #999;
   --waline-dark-grey: #666;
@@ -16,7 +16,7 @@
   --waline-border-color: #41484e;
   --waline-disable-bgcolor: #f8f8f8;
   --waline-disable-color: #000;
-  --waline-code-bgcolor: #282c34;
+  --waline-code-bgcolor: #171c21;
   --waline-bq-color: #f0f0f0;
   --waline-avatar-size: 3.25rem;
   --waline-m-avatar-size: calc(var(--waline-avatar-size) * 9 / 13);

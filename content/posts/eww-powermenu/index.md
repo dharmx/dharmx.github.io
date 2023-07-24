@@ -181,6 +181,7 @@ For now, take a look at the following yuck snippet.
 
 ```fennel
 (defwindow powermenu
+  :monitor 0 ;; Optional for X11
   :stacking "fg"
   :windowtype "normal"
   :wm-ignore true
@@ -273,7 +274,7 @@ Out of those we will only need a few for this project, which are pretty basic.
     "Hello, World!") ;; this is also a label
 
 - The [`button`](https://elkowar.github.io/eww/widgets.html#button) widget.
-  It just executes a command on left, right and middle click.
+  It just executes a command on left, right and middle clicks.
 
   ```fennel
   (button :onclick "notify-send Left"
@@ -766,6 +767,7 @@ Here is the full code.
 
 ```fennel
 (defwindow powermenu
+  ;; monitor 0 ;; wayland users may need this
   :stacking "fg"
   :windowtype "normal"
   :wm-ignore true

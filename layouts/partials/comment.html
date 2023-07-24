@@ -85,6 +85,9 @@
             {{- with $waline.reaction -}}
                 {{- $commentConfig = dict "reaction" . | dict "waline" | merge $commentConfig -}}
             {{- end -}}
+            {{- with $waline.locale -}}
+                {{- $commentConfig = dict "locale" . | dict "waline" | merge $commentConfig -}}
+            {{- end -}}
             {{- with $waline.comment -}}
                 {{- $commentConfig = dict "comment" . | dict "waline" | merge $commentConfig -}}
             {{- end -}}

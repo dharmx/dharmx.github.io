@@ -171,6 +171,14 @@ imageUploader = true
 highlighter = true
 texRenderer = true
 
+[page.comment.waline.locale]
+level0 = "Bandits"
+level1 = "Troopers"
+level2 = "Generals"
+level3 = "Rulers"
+level4 = "Overlords"
+level5 = "Celestials"
+
 [typeit]
 speed = 100
 cursorSpeed = 1000
