@@ -1,11 +1,11 @@
 code {
   display:inline-block;
   max-width: 100%;
-  padding: 0 0.4rem;
+  padding: 0 0.2rem 0 0.2rem;
   @include overflow-wrap(break-word);
   @include line-break(anywhere);
-  font-size: var(--code-font-size);
-  font-family: var(--code-font-family);
+  font-size: $code-font-size;
+  font-family: $code-font-family;
   color: $code-color;
 
   [theme=dark] & {
@@ -50,8 +50,8 @@ code, pre, .highlight table, .highlight tr, .highlight td {
 }
 
 .highlight {
-  font-family: var(--code-font-family);
-  font-size: var(--code-font-size);
+  font-family: $code-font-family;
+  font-size: $code-font-size;
   line-height: 1.4em;
   margin: .5rem 0;
 
@@ -79,7 +79,7 @@ code, pre, .highlight table, .highlight tr, .highlight td {
       align-items: center;
       box-sizing: border-box;
       width: 100%;
-      font-family: var(--global-font-family);
+      font-family: $global-font-family;
       font-weight: bold;
       color: $code-info-color;
       background: darken($code-background-color, 8%);
@@ -244,8 +244,8 @@ code, pre, .highlight table, .highlight tr, .highlight td {
 }
 
 .gist {
-  font-family: var(--code-font-family);
-  font-size: var(--code-font-size);
+  font-family: $code-font-family;
+  font-size: $code-font-size;
 
   .table-wrapper {
     > table,

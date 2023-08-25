@@ -1285,7 +1285,7 @@ This is a pretty ordinary way of using event subscriptions. You can also script
 can also be scripted, etc. For getting a feel for what event subscriptions are
 capable of, we will be making a new layout in `BSPWM` called `tall`.
 
-`tall` is the default `master-stack`` layout where on one side, there is one
+`tall` is the default `master-stack` layout where on one side, there is one
 large window, called the **master** window and on another side, there are a stack
 of windows called the slave windows. Hence, consider the following code.
 
@@ -1293,7 +1293,7 @@ of windows called the slave windows. Hence, consider the following code.
 #!/usr/bin/env bash
 
 # INFO: This is a bare-bones implementation of tall.
-# WARN: Bugs are to be found.
+# WARN: Bugs are to be expected.
 N=(bspc query -N @/2 -n)
 
 function calibrate() {
@@ -1304,8 +1304,6 @@ function calibrate() {
 while read; do
   [ "$("${N[@]}" .descendant_of.window | wc -l)" -gt 1 ] && calibrate
 done < <(bspc subscribe node_add node_remove)
-
-unset N
 {{< /highlight >}}
 
 From the above code, we will be first subscribing to `node_add` and `node_remove`
