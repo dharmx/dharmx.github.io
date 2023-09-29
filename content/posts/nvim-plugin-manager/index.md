@@ -1,11 +1,11 @@
 ---
 draft: true
 
-title: "Parson"
+title: "Neovim Plugin Manager"
 subtitle: "A minimal package manager for Neovim. Sample configuration included."
 summary: "Decided to write a package manager for Neovim within 100 lines of code.
           Turned out pretty well in my opinion. Additionally, features that could
-          not be included are also documented."
+          not be included are also documented and included."
 description: "Minimal package manager for Neovim."
 
 date: 2022-08-24T17:29:27+05:30
@@ -22,7 +22,7 @@ relative: true
 featuredImage: "images/featured-image.png"
 featuredImagePreview: "images/featured-image.png"
 
-images: ["/parson/images/featured-image.png"]
+images: ["/nvim-plugin-manager/images/featured-image.png"]
 toc:
   auto: true
 
@@ -39,15 +39,13 @@ rssFullText: false
 
 # Introduction
 
-Hello again. It's been a while since my wrote my last post. Been really busy with studies and whatnot. Anyways! This
-post is going to be a bit different. It will be a exploration and experimentation kind of post i.e. I will attempt
-to create a minimal plugin manager for Neovim. It should be under 100 lines of code.
+Hello again. It's been quite a while since my wrote my last post. Been really busy with studies and whatnot.
+This time I'll be writing some code for once. We'll be creating a nice and simple plugin manager for Neovim.
+This will help in getting a deeper and clearer understaning of how plugin managers actually work in Neovim.
 
 {{< admonition warning "Code Quality." false >}}
 Please, keep in mind that the code may end up looking really cluttered. This is because I am optimizing towards
-lines of code. So, I'll probably end up squeezing as much stuff as humanely possible. Although, you are allowed
-to critique me on parts that could be shortened. Well... other suggestions are allowed too! But, please be
-courteous when you are doing so. (**BE NICE**)
+lines of code. So, I'll probably end up squeezing as much stuff as humanely possible.
 {{< /admonition >}}
 
 ## Plan
@@ -56,29 +54,30 @@ Currently, I am planning to add the following features.
 
 - Define a nice API for adding plugin specifications.
 - Allow downloading to `opt` to support Vim's default lazy loading mechanism.
-- Implement `update`, `download`, `config` and `load` functionalities.
-- Allow `config`, `after_download` and `after_update` callbacks.
+- Allow `PluginLoadPost`, `PluginInstallPost` and `PluginUpdatePost` auto-commands.
 - Store `installed`, `location`, `link`, `loaded`, `name`, and `username` metadata keys.
 
-Additionally, I will be implementing more advanced lazy handlers but, won't be adding them to the plugin code.
-Instead, I will add an "extras" section and add code snippets with minimal descriptions there. Lastly, I will
-also attach a minimal nvim configuration file (init.lua) that utilizes Parson.
+Additionally, I will be implementing more advanced lazy handlers but won't be adding them to the plugin code.
+Instead, I will add an "Extras" section and add code snippets with minimal descriptions there. Lastly, I will
+also attach a minimal nvim configuration file for a demonstration.
 
 {{< admonition info "Before we proceed." >}}
 This is a fairly advanced Neovim/Lua article. Therefore, moderate familiarity with the Lua programming language
-is required. Additionally, some familiarity with Neovim Lua API is highly preferred. I will also simplify what each
+is required. Additionally, some familiarity with Neovim Lua API is preferred. I will also simplify what each
 Neovim API does along the way as best as I can.
 {{< /admonition >}}
 
 ## Metatables
 
-I will mainly be explaining how the `__add`, `__sub`, `__index`, `__call` and `__newindex` metatables work. Out
-of this the `__add` metatable will be the backbone of Parson so pay extra attention! Anyway, for starters,
-just know that metatables allow us to change the behaviour of a table. It does so by using specific events
-i.e. say you want to add two items `a + b` where `a` and `b` are tables. Whenever Lua tries to add two tables,
-it checks whether either of them has a metatable and whether that metatable has an `__add` field.
-If Lua finds this field, it calls the corresponding value (the so-called metamethod, which should be a function)
-to compute the sum. If you have enough experience with metatables then you may skip to the
+I will mainly be explaining how the add, sub, index, call and newindex meta-methods work.
+Out of this the "add" meta-method will be the backbone of this plugin manager so pay extra attention!
+
+Now, for starters, just know that metatables allow us to change the behaviour of a table.
+It does so by using specific events i.e. say you want to add two items `a + b` where `a` and `b` are tables.
+Whenever Lua tries to add two tables, it checks whether either of them has a metatable and whether that
+metatable has an `__add` field. If Lua finds this field, it calls the corresponding value
+(the so-called meta-method, which should be a function) to compute the sum.
+If you have enough experience with metatables then you may skip to the
 [spec]({{< ref "#plugin-specification" >}}) section.
 
 ### <samp>__add</samp>
@@ -124,7 +123,7 @@ end
 setmetatable(MANGA, _META)
 
 MANGA = MANGA + "mangakakalot.to" + "mangareader.to" + "readm.org"
-vim.pretty_print(MANGA) -- run by :luafile %
+vim.print(MANGA) -- run by :luafile %
 ```
 
 This will result on the following output.
@@ -165,7 +164,7 @@ setmetatable(MANGA, _META)
 
 MANGA = MANGA + "mangakakalot.to" + "mangareader.to" + "readm.org"
 MANGA = MANGA - "webtoons.com" + "tapas.io" - "reaperscans.com"
-vim.pretty_print(MANGA)
+vim.print(MANGA)
 ```
 
 This will result in the following.
@@ -188,7 +187,7 @@ This will result in the following.
 
 ### <samp>__index</samp>
 
-This one's a lot easier than the ones we have seen so far. This metamethod runs when you try to index a `nil`
+This one's a lot easier than the ones we have seen so far. This meta-method runs when you try to index a `nil`
 element of the table this metatable is connected to, `table[index]`. Hence, consider the following example.
 
 ```lua
@@ -206,7 +205,7 @@ local _EXTRA = setmetatable({}, {
     end
   end
 })
-vim.pretty_print(_EXTRA[2])
+vim.print(_EXTRA[2])
 ```
 
 This one's output will be as follows.
@@ -221,7 +220,7 @@ This one's output will be as follows.
 
 ### <samp>__newindex</samp>
 
-This is similar to the `__index` metatable. This metamethod runs when you try to index and set a `nil` element of the
+This is similar to the `__index` metatable. This meta-method runs when you try to index and set a `nil` element of the
 table this metatable is connected to, `table[index] = value`. Now, see the following example.
 
 ```lua
@@ -255,8 +254,8 @@ _META.__call = function(this, items)
   return this
 end
 setmetatable(MANGA, _META)
-vim.pretty_print(MANGA("hello.com"))
-vim.pretty_print(MANGA({ "garbage.com", "wuxiaworld.com", "gogomanga.com" }))
+vim.print(MANGA("hello.com"))
+vim.print(MANGA({ "garbage.com", "wuxiaworld.com", "gogomanga.com" }))
 ```
 
 This will yield the following output.
@@ -304,7 +303,7 @@ This will yield the following output.
 Now, that the Lua stuff is out of the way, it is time for a primer on some Neovim/Vim API and elements that
 we will be using.
 
-### vim.o and vim.opt
+### <samp>vim.o</samp> and <samp>vim.opt</samp>
 
 These are the options that you set with the `:set` command. The difference between `vim.o` and `vim.opt` is
 that one is easy to use (as in getting its value and setting its value). The reason being that all elements of `vim.o`
@@ -366,14 +365,14 @@ vim.opt.rtp:prepend("/home/username/.bin/local_plugin") -- rtp -> runtimepath
 
 -- alternative vim.opt.rtp = vim.opt.rtp + "/home/username/.bin/local_plugin"
 vim.opt.runtimepath:append("/home/username/.bin/local_plugin")
-vim.pretty_print(vim.opt.fillchars) -- NOTE: This will print a table instead.
+vim.print(vim.opt.fillchars) -- NOTE: This will print a table instead.
 
 -- these are a bit scuffed
-vim.pretty_print(vim.opt.fillchars._value) -- same
-vim.pretty_print(vim.opt.fillchars:get()) -- same
+vim.print(vim.opt.fillchars._value) -- same
+vim.print(vim.opt.fillchars:get()) -- same
 
 -- INFO: If all you want is to inspect the current value of a setting then you may prefer vim.o instead.
-vim.pretty_print(vim.o.fillchars) -- same as vim.opt.fillchars:get()
+vim.print(vim.o.fillchars) -- same as vim.opt.fillchars:get()
 ```
 
 I hope the difference is clear now.
@@ -383,74 +382,41 @@ I hope the difference is clear now.
 Please read the <samp>[runtimepath](https://vimhelp.org/options.txt.html#%27runtimepath%27)</samp> help page section.
 Then the <samp>[packpath](https://vimhelp.org/options.txt.html#%27packpath%27)</samp> section and finally, the
 <samp>[packages](https://vimhelp.org/repeat.txt.html#packages)</samp> section. I am too lazy to explain this. I'll
-edit and write my own explanations and examples when I'm in mood. Let us quickly move to the main part 🤩!
-I am fed up with distractions!
+edit and write my own explanations and examples when I'm in mood.
+Finally, let us quickly move to the main part 🤩!
 
 ## Plugin Specification
 
-You are entering the core of this article! Make sure to stay hydrated 🛫.
+For starters, please skim through this [nvim-package-specification](https://github.com/nvim-lua/nvim-package-specification) document.
+This is an unofficial draft but it is useful for getting a gist of what this section will be about.
+We will only _adapt_ the `package` and `source` from this. And, some of custom keys will also be added!
+Hence, please take a look at the brief description of the new hybrid specification below.
 
-For starters, please skim through this [readme](https://github.com/nvim-lua/nvim-package-specification) this is an
-unofficial draft but it is useful for getting a gist of what this section will be about. Moving on, we will only
-take/adapt the `package` and `source` from this. And, some of my custom keys will also be added! Hence, please take a
-look at the brief description below.
-
-- `name`: The name of the plugin. This will be an adaption of the `package` key from
-  [readme](https://github.com/nvim-lua/nvim-package-specification). The main difference is that
-  the name will be the tail of the GitHub repository rather than the namespace i.e. we will be using
-  `https://github.com/neovim/nvim-lspconfig →  nvim-lspconfig` as opposed to `nvim-lspconfig/lua/lspconfig →  lspconfig`.
-- `source`: This will be similar to `source` but we'll alias it as `link` (this is because I have already written the
-  prototype which this article is all about 😅).
-- `username`: We will be splitting the `https://github.com/neovim/nvim-lspconfig` link with respect to `/` and will
-  take the parent of `nvim-lspconfig` i.e. `neovim`. This is basically a indicator of the author of the plugin.
-  This is useless most of the time but with given data (the link) it is effortless to generate.
-- `repo`: The naming is not the best for this one (maybe `repo_title` would be better?). This is basically the
-  tail of the link.
-- `location`: The `repo` key will be useful here. This is basically the local location of the plugin.
+- `[1]`: The source of the plugin. The main difference from the draft is that this will use [URI](https://en.wikipedia.org/wiki/Uniform_Resource_Identifier)
+  And, it will effectively combine the `name` and the `url` keys from the draft.
 - `installed`: A key that will be set by the plugin itself after the plugin is downloaded to the `location` path.
   Additionally, the plugin manager will also check if the plugin is already installed and set that field accordingly.
 - `loaded`: This will be similar to `loaded`. The difference: It will be set to `true` after
   <samp>[:packadd](https://neovim.io/doc/user/repeat.html#%3Apackadd)</samp>.
-- `lazy`: This will decide whether the plugin will be manually loaded or, will be loaded on [startup](https://vimhelp.org/starting.txt.html#startup).
 
-There are more keys. Which I have decided to separate them from the main list. This list contains callbacks (optional).
-I was contemplating if I should remove these for making the code more minimal. But now that I think about it, it seems
-that these sorts of callbacks (`on_action`, `before_action`, etc) will also server as a nice illustration.
+## Events
 
-- `after_download`: These are optional callbacks that will be called after **a** plugin finishes downloading.
-- `after_update`: Same as `after_download` except this one is called after plugin update.
+Most plugin managers have plugin specification keys like `config`, `build`, `dependencies`, etc.
+But, we won't be implementing them strictly here. Instead, we will try to leverage auto-commands
+as much as possible.
 
-Yet another batch of specification keys. These are also functions but they are not optional. But, overriding them is.
-This is the last batch so rest assured 😄.
+The core concept is for example, fire an user event when a plugin is loaded. We can then bind a
+callback to that event which will check which plugin has been loaded based on the metadata passed
+into the callback and then load its configuration. For making this concerte we will implement the
+following events.
 
-- `config`: This function will be responsible for loading the plugin configuration. This needs to run after loading
-  the plugin (plugins are loaded by the <samp>:packadd</samp> command).
-- `load`: This function will be responsible for loading the actual plugin.
-- `download`: This function will be responsible for asynchronously downloading the plugin package into a local
-  directory.
-- `update`: This function will be responsible for asynchronously updating the plugin directory.
+- `PluginLoadPost`: Fired when a plugin has been loaded.
+- `PluginInstallPost`: Fired when a plugin has finished downloading.
+- `PluginUpdatePost`: Fired when a plugin has finished updating.
 
 {{< admonition info "Git and Github." >}}
-I will be using `git` and [GitHub](https://github.com) for `git clone` and `git pull` for downloading and updating the
-plugin. Although it can be changed with minimal tweaking.
+I will be using `git clone` and `git pull` for downloading and updating the
+plugin. Although, it can be changed with minimal tweaking.
 {{< /admonition >}}
 
 ## Configuration
-
-## Database
-
-### Sample Usage
-
-### Optional Keys
-
-### Simple Keys
-
-## Main Keys
-
-## Setup
-
-### Full Code
-
-### Test Usage
-
-## Lazy Handlers
