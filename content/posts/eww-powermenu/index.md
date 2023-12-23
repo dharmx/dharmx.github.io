@@ -345,9 +345,9 @@ The weird format string in the `date` call is known as [JSON](https://www.json.o
 Now, you just need to _bind_ this to a widget label.
 
 ```fennel
-(label :text date) ;; will display {"hour":"11","min":"30"} as is
-(label :text {date.min}) ;; will display 30 - i.e. useful for JSON
-(label :text "${date.hour} :: ${date.min}") ;; will display 11 :: 30
+(label :text time) ;; will display {"hour":"11","min":"30"} as is
+(label :text {time.min}) ;; will display 30 - i.e. useful for JSON
+(label :text "${time.hour} :: ${time.min}") ;; will display 11 :: 30
 ```
 
 There are other kinds of variables as well which you can learn about from the
