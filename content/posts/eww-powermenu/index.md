@@ -87,7 +87,7 @@ Debian's package naming conventions are quite different).
 - And you would also need `sudo` which you already might have installed.
 - Fonts used in this widget are
   [Poiret One](https://fonts.google.com/specimen/Poiret+One),
-  [Koulen](https://fonts.google.com/specimen/Koulen) and [Phosphor](https://github.com/phosphor-icons/phosphor-icons/tree/master/src/fonts).
+  [Koulen](https://fonts.google.com/specimen/Koulen) and [Phosphor](https://github.com/phosphor-icons/web/tree/master/src/regular).
 - `nmcli` tool that comes with Network Manager which you already might have installed.
 
 {{< collapse summary="Copy and Paste" >}}
@@ -673,7 +673,7 @@ called `powermenu_layout`.
 {{< admonition note "Why aren't my glyphs visible?" >}}
 The glyphs may or, may not be visible as, you might not have the
 font installed. You may need to install [nerd font](https://www.nerdfonts.com/font-downloads)
-and [Phosphor Icons](https://github.com/phosphor-icons/phosphor-icons/tree/master/src/fonts).
+and [Phosphor Icons](https://github.com/phosphor-icons/web/tree/master/src/regular).
 {{< /admonition >}}
 
 ### Styling with SCSS
