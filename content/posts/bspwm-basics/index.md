@@ -3,8 +3,7 @@ draft: false
 
 title: "Bspwm Basics"
 subtitle: "Automation and workflow feat. BSPWM."
-summary: "This is a record of me trying to understand how BSPWM works
-          by analysing the source code and whatnot."
+summary: "This is a record of me trying to understand how BSPWM works by analysing the source code and whatnot."
 description: "Understanding the working and intricacies of BSPWM."
 
 date: 2022-08-24T17:29:27+05:30

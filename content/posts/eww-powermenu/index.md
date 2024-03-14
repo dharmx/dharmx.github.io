@@ -3,9 +3,7 @@ draft: false
 
 title: "EWW Powermenu"
 subtitle: "A classy powermenu using EWW."
-summary: "Due to EWW's interesting choice of DSL it's hard to configure and is DIY.
-         Plus, there aren't any definitive tutorials. Hence! I will try to ease you through
-         the process of configuring EWW while building a classy Powermenu."
+summary: "Due to EWW's interesting choice of DSL it's hard to configure and is DIY. Plus, there aren't any definitive tutorials. Hence! I will try to ease you through the process of configuring EWW while building a classy Powermenu."
 description: "Learning the basics of EWW by building a neat Powermenu. Level, intermediate."
 
 date: "2022-08-18T18:08:53+05:30"
