@@ -4,7 +4,7 @@ draft: false
 title: "Neovim Pastebin"
 subtitle: "Small neovim pastebin utility."
 summary: "A small minimal utility that posts a neovim buffer to a pastebin website and the copy the returned link into a register."
-description: "Making a pastebin script for share code from neovim."
+description: "A pastebin script for sharing code."
 
 date: "2024-03-06T17:49:05+05:30"
 lastmod: "2024-03-06T17:48:33+05:30"
